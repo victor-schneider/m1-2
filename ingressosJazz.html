@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ingressosShow.css">
+  <script src="script.js" defer></script>
+  <title>Jazz do Carlinhos</title>
+</head>
+<body>
+  <header>
+    <a href="home.html">
+      <img src="logoPequena.png" alt="">
+    </a>
+  </header>
+  <main>
+    <section id="banner">
+      <div id="infos">
+        <h2>Jazz do Carlinhos</h2>
+        <p>Data: 24/02/2026</p>
+        <p>Abertura: 19:00</p>
+        <p>Início: 20:00</p>
+      </div>
+      <div id="imgBanner">
+        <img src="./imagens-eventos/jazz.png" alt="">
+      </div>
+    </section>
+
+    <div id="container-locais-ingressos">
+      <section id="locaisEvento">
+        <h2>Selecione uma área para comprar ingressos</h2>
+        </section>
+      <div id="ingressos">
+        <h3>Ingressos</h3>
+        <div class="row-ingresso">
+          <p>Mesa (2 Pessoas)</p>
+          <p>R$<span id="valor-mesa">220</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-mesa">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('mesa', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-mesa">0</span>
+            <button type="button" onClick="alterarQuantidade('mesa', 'mais')">+</button>
+          </div>
+        </div>
+        <div class="row-ingresso">
+          <p>Bistrô</p>
+          <p>R$<span id="valor-bistro">150</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-bistro">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('bistro', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-bistro">0</span>
+            <button type="button" onClick="alterarQuantidade('bistro', 'mais')">+</button>
+          </div>
+        </div>
+        <button type="button" onClick="confirmar()" id="botao-confirmar">Confirmar</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <h2>Complyca - Todos os direitos reservados</h2>
+  </footer>
+</body>
+</html>

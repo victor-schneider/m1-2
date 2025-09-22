@@ -84,6 +84,7 @@ main > h2 {
   padding-right: 20px;
   background-image: linear-gradient(#ffffff, oklch(95.1% 0.026 236.824));
   gap: 15px;
+  justify-content: space-evenly;
 }
 
 .post-evento {

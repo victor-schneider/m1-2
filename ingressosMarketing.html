@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ingressosShow.css">
+  <script src="script.js" defer></script>
+  <title>Summit de Marketing</title>
+</head>
+<body>
+  <header>
+    <a href="home.html">
+      <img src="logoPequena.png" alt="">
+    </a>
+  </header>
+  <main>
+    <section id="banner">
+      <div id="infos">
+        <h2>Algum Summit de Marketing</h2>
+        <p>Data: 20/05/2059</p>
+        <p>Abertura: 08:00</p>
+        <p>Início: 09:00</p>
+      </div>
+      <div id="imgBanner">
+        <img src="./imagens-eventos/palestra.png" alt="">
+      </div>
+    </section>
+
+    <div id="container-locais-ingressos">
+      <section id="locaisEvento">
+        <h2>Selecione seu tipo de ingresso</h2>
+      </section>
+      <div id="ingressos">
+        <h3>Ingressos</h3>
+        <div class="row-ingresso">
+          <p>Acesso Padrão</p>
+          <p>R$<span id="valor-padrao">450</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-padrao">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('padrao', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-padrao">0</span>
+            <button type="button" onClick="alterarQuantidade('padrao', 'mais')">+</button>
+          </div>
+        </div>
+        <div class="row-ingresso">
+          <p>Acesso VIP</p>
+          <p>R$<span id="valor-vip">800</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-vip">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('vip', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-vip">0</span>
+            <button type="button" onClick="alterarQuantidade('vip', 'mais')">+</button>
+          </div>
+        </div>
+        <button type="button" onClick="confirmar()" id="botao-confirmar">Confirmar</button>
+      </div>
+    </div>
+  </main>
+  <footer>
+    <h2>Complyca - Todos os direitos reservados</h2>
+  </footer>
+</body>
+</html>

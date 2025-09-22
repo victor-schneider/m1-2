@@ -177,6 +177,7 @@ main {
   padding: 10px 0px;
   color: white;
   border-style: none;
+  height: fit-content;
 }
 
 .quantidade {

@@ -25,11 +25,8 @@
             <p>Tenha o acesso ao backstage do show!</p>
             <p>Valor: R$200</p>
             <button type="button" onClick="adicionarServico('premium')" id="botao-premium">Adicionar ao carrinho</button>
-
         </div>
       </div>
-
-      
       <div class="tipo-servico  hidden" id="servicos-pista">
         <h2>Pista</h2>
         <div class="bloco-servico">
@@ -37,33 +34,54 @@
             <p>Uma camiseta autografada no final</p>
             <p>Valor: R$500</p>
             <button type="button" onClick="adicionarServico('pista')" id="botao-pista">Adicionar ao carrinho</button>
-
         </div>
-
       </div>
-
-    <div class="tipo-servico  hidden" id="servicos-arquibancada">
-        <h2>Arquibancada</h2>
+      <div class="tipo-servico hidden" id="servicos-acesso">
+        <h2>Rally</h2>
         <div class="bloco-servico">
-            <p><b>Descrição:</b></p>
-            <p>Um chope 700ml</p>
-            <p>Valor: R$52</p>
-            <button type="button" onClick="adicionarServico('arquibancada')" id="botao-arquibancada">Adicionar ao carrinho</button>
-
-        </div>
-
-      </div>
-
-    <div class="tipo-servico  hidden" id="servicos-camarote">
-        <h2>Camarote</h2>
-        <div class="bloco-servico">
-            <p><b>Descrição:</b></p>
-            <p>Open bar do início ao fim do evento.</p>
+            <p><b>Descrição:</b> Camiseta oficial do evento.</p>
             <p>Valor: R$150</p>
-            <button type="button" onClick="adicionarServico('camarote')" id="botao-camarote">Adicionar ao carrinho</button>
-
+            <button type="button" onClick="adicionarServico('camisetaRally')" id="botao-camisetaRally">Adicionar ao carrinho</button>
         </div>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b> Acesso ao box dos carros.</p>
+            <p>Valor: R$400</p>
+            <button type="button" onClick="adicionarServico('boxRally')" id="botao-boxRally">Adicionar ao carrinho</button>
+        </div>
+      </div>
 
+      <div class="tipo-servico hidden" id="servicos-mesa">
+        <h2>Jazz (Mesa)</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b> Drink Executivo.</p>
+            <p>Valor: R$70</p>
+            <button type="button" onClick="adicionarServico('drinkExecutivo')" id="botao-drinkExecutivo">Adicionar ao carrinho</button>
+        </div>
+      </div>
+      <div class="tipo-servico hidden" id="servicos-bistro">
+        <h2>Jazz (Bistrô)</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b> Buffet especial.</p>
+            <p>Valor: R$120</p>
+            <button type="button" onClick="adicionarServico('buffetEspecial')" id="botao-buffetEspecial">Adicionar ao carrinho</button>
+        </div>
+      </div>
+
+      <div class="tipo-servico hidden" id="servicos-padrao">
+        <h2>Marketing (Padrão)</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b> Acesso a sala de networking.</p>
+            <p>Valor: R$100</p>
+            <button type="button" onClick="adicionarServico('networking')" id="botao-networking">Adicionar ao carrinho</button>
+        </div>
+      </div>
+       <div class="tipo-servico hidden" id="servicos-vip">
+        <h2>Marketing (VIP)</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b> Palestra Especial.</p>
+            <p>Valor: R$250</p>
+            <button type="button" onClick="adicionarServico('palestraEspecial')" id="botao-palestraEspecial">Adicionar ao carrinho</button>
+        </div>
       </div>
 
       <div class="confirmar">

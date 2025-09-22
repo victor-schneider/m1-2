@@ -1,162 +1,175 @@
+// VARIAVEIS GLOBAIS DE QUANTIDADE
 let quantidades = {
+  // Show
   premium: 0,
   pista: 0,
   arquibancada: 0,
   camarote: 0,
+  // Rally
+  acesso: 0,
+  // Jazz
+  mesa: 0,
+  bistro: 0,
+  // Marketing
+  padrao: 0,
+  vip: 0,
 };
 
+// VARIAVEIS GLOBAIS DE VALORES DE INGRESSOS
 let valorIngressos = {
+  // Show
   premium: 200,
   pista: 120,
   arquibancada: 150,
   camarote: 300,
+  // Rally
+  acesso: 180,
+  // Jazz
+  mesa: 220,
+  bistro: 150,
+  // Marketing
+  padrao: 450,
+  vip: 800,
 };
 
+// VARIAVEIS GLOBAIS DE VALORES DE SERVIÇOS
 let valorServicos = {
+  // Show
   premium: 200,
   pista: 500,
-  arquibancada: 52,
-  camarote: 150,
+  // Rally
+  camisetaRally: 150,
+  boxRally: 400,
+  // Jazz
+  drinkExecutivo: 70,
+  buffetEspecial: 120,
+  // Marketing
+  networking: 100,
+  palestraEspecial: 250,
 };
 
+// VARIAVEIS GLOBAIS DE SERVIÇOS ADICIONADOS
 let servico = {
+  // Show
   premium: false,
   pista: false,
-  arquibancada: false,
-  camarote: false,
+  arquibancada: false, // Mantido para consistência
+  camarote: false, // Mantido para consistência
+  // Rally
+  camisetaRally: false,
+  boxRally: false,
+  // Jazz
+  drinkExecutivo: false,
+  buffetEspecial: false,
+  // Marketing
+  networking: false,
+  palestraEspecial: false,
 };
 
+// VARIAVEIS GLOBAIS DE DISPONIBILIDADE
 let totaisDisponiveis = {
-  arquibancada: 100,
+  // Show
   premium: 80,
   pista: 200,
+  arquibancada: 100,
   camarote: 50,
+  // Rally
+  acesso: 500,
+  // Jazz
+  mesa: 40,
+  bistro: 60,
+  // Marketing
+  padrao: 300,
+  vip: 50,
 };
 
 function alterarQuantidade(setor, variacao) {
-  if (quantidades[setor] > 0 && variacao == "menos") {
-    quantidades[setor] -= 1;
-  } else if (quantidades[setor] == 0) {
-    quantidades[setor] = 0;
+  let totaisSalvos =
+    JSON.parse(localStorage.getItem("totaisDisponiveis")) || totaisDisponiveis;
+  let quantidadeAtual = quantidades[setor] || 0;
+  let maxDisponivel = totaisSalvos[setor] || 0;
+
+  if (variacao === "mais" && quantidadeAtual < maxDisponivel) {
+    quantidades[setor]++;
+  } else if (variacao === "menos" && quantidades[setor] > 0) {
+    quantidades[setor]--;
   }
 
-  if (variacao == "mais") {
-    quantidades[setor] += 1;
+  let elementoQuantidade = document.getElementById(`quantidade-${setor}`);
+  if (elementoQuantidade) {
+    elementoQuantidade.innerHTML = quantidades[setor];
   }
 
-  switch (setor) {
-    case "premium":
-      document.getElementById("quantidade-premium").innerHTML =
-        quantidades[setor];
-      document.getElementById("disponiveis-premium").innerHTML =
-        totaisDisponiveis[setor] - quantidades[setor];
-      break;
-    case "pista":
-      document.getElementById("quantidade-pista").innerHTML =
-        quantidades[setor];
-      document.getElementById("disponiveis-pista").innerHTML =
-        totaisDisponiveis[setor] - quantidades[setor];
-      break;
-    case "arquibancada":
-      document.getElementById("quantidade-arquibancada").innerHTML =
-        quantidades[setor];
-      document.getElementById("disponiveis-arquibancada").innerHTML =
-        totaisDisponiveis[setor] - quantidades[setor];
-      break;
-    case "camarote":
-      document.getElementById("quantidade-camarote").innerHTML =
-        quantidades[setor];
-      document.getElementById("disponiveis-camarote").innerHTML =
-        totaisDisponiveis[setor] - quantidades[setor];
-      break;
+  let elementoDisponiveis = document.getElementById(`disponiveis-${setor}`);
+  if (elementoDisponiveis) {
+    elementoDisponiveis.innerHTML = totaisSalvos[setor] - quantidades[setor];
   }
 }
 
 function confirmar() {
-  if (
-    quantidades.arquibancada == 0 &&
-    quantidades.camarote == 0 &&
-    quantidades.pista == 0 &&
-    quantidades.premium == 0
-  ) {
+  const totalSelecionado = Object.values(quantidades).reduce(
+    (total, qtd) => total + qtd,
+    0
+  );
+
+  if (totalSelecionado === 0) {
     alert("Selecione algum ingresso.");
   } else {
-    window.open("servicos.html", "_self");
     localStorage.setItem("carrinho", JSON.stringify(quantidades));
-    let jsonStorage = localStorage.getItem("carrinho");
-    let result = JSON.parse(jsonStorage);
-    mostraServicos();
-    return result;
+    window.open("servicos.html", "_self");
   }
 }
 
 function mostraServicos() {
   let variavel = localStorage.getItem("carrinho");
   let result = JSON.parse(variavel);
-  console.log(result.premium);
 
-  if (result.premium > 0) {
+  if (!result) return;
+
+  if (result.premium > 0)
     document.getElementById("servicos-premium").classList.remove("hidden");
-  }
-  if (result.pista > 0) {
+  if (result.pista > 0)
     document.getElementById("servicos-pista").classList.remove("hidden");
-  }
-  if (result.arquibancada > 0) {
-    document.getElementById("servicos-arquibancada").classList.remove("hidden");
-  }
-  if (result.camarote > 0) {
-    document.getElementById("servicos-camarote").classList.remove("hidden");
-  }
+  if (result.acesso > 0)
+    document.getElementById("servicos-acesso").classList.remove("hidden");
+  if (result.mesa > 0)
+    document.getElementById("servicos-mesa").classList.remove("hidden");
+  if (result.bistro > 0)
+    document.getElementById("servicos-bistro").classList.remove("hidden");
+  if (result.padrao > 0)
+    document.getElementById("servicos-padrao").classList.remove("hidden");
+  if (result.vip > 0)
+    document.getElementById("servicos-vip").classList.remove("hidden");
 }
 
 if (window.location.pathname.endsWith("servicos.html")) {
   mostraServicos();
 }
 
-function adicionarServico(setor) {
-  switch (setor) {
-    case "premium":
-      document.getElementById("botao-premium").innerHTML = "Adicionado";
-      servico[setor] = true;
-      break;
-    case "pista":
-      document.getElementById("botao-pista").innerHTML = "Adicionado";
-      servico[setor] = true;
-      break;
-    case "arquibancada":
-      document.getElementById("botao-arquibancada").innerHTML = "Adicionado";
-      servico[setor] = true;
-      break;
-    case "camarote":
-      document.getElementById("botao-camarote").innerHTML = "Adicionado";
-      servico[setor] = true;
-      break;
+function adicionarServico(tipoServico) {
+  servico[tipoServico] = !servico[tipoServico];
+
+  let botao = document.getElementById(`botao-${tipoServico}`);
+  if (servico[tipoServico]) {
+    botao.innerHTML = "Adicionado";
+    botao.style.backgroundColor = "green";
+  } else {
+    botao.innerHTML = "Adicionar ao carrinho";
+    botao.style.backgroundColor = "";
   }
 }
 
 function pularEtapa() {
-  window.open("confirmacao.html", "_self");
+  for (let key in servico) {
+    servico[key] = false;
+  }
   localStorage.setItem("carrinhoServicos", JSON.stringify(servico));
-  let jsonStorage = localStorage.getItem("carrinhoServicos");
-  let result = JSON.parse(jsonStorage);
-  return result;
+  window.open("confirmacao.html", "_self");
 }
 
 function confirmarServicos() {
-  if (
-    servico.arquibancada == false &&
-    servico.camarote == false &&
-    servico.pista == false &&
-    servico.premium == false
-  ) {
-    alert("Selecione algum serviço, ou pule a etapa.");
-  } else {
-    window.open("confirmacao.html", "_self");
-    localStorage.setItem("carrinhoServicos", JSON.stringify(servico));
-    let jsonStorage = localStorage.getItem("carrinhoServicos");
-    let result = JSON.parse(jsonStorage);
-    return result;
-  }
+  localStorage.setItem("carrinhoServicos", JSON.stringify(servico));
+  window.open("confirmacao.html", "_self");
 }
 
 function mostrarConfirmacao() {
@@ -164,64 +177,43 @@ function mostrarConfirmacao() {
   let resultIngressos = JSON.parse(ingressos);
   let servicos = localStorage.getItem("carrinhoServicos");
   let resultServicos = JSON.parse(servicos);
-  console.log(resultIngressos.premium);
+
+  if (!resultIngressos) return;
 
   let valorTotal = 0;
 
-  if (resultIngressos.premium > 0) {
-    document.getElementById("quantidade-premium").innerHTML =
-      resultIngressos.premium;
-    document.getElementById("ingresso-premium").classList.remove("hidden");
-    valorTotal += valorIngressos.premium * resultIngressos.premium;
-  }
-  if (resultIngressos.pista > 0) {
-    document.getElementById("quantidade-pista").innerHTML =
-      resultIngressos.pista;
-    document.getElementById("ingresso-pista").classList.remove("hidden");
-    valorTotal += valorIngressos.pista * resultIngressos.pista;
-  }
-  if (resultIngressos.arquibancada > 0) {
-    document.getElementById("quantidade-arquibancada").innerHTML =
-      resultIngressos.arquibancada;
-    document.getElementById("ingresso-arquibancada").classList.remove("hidden");
-    valorTotal += valorIngressos.arquibancada * resultIngressos.arquibancada;
-  }
-  if (resultIngressos.camarote > 0) {
-    document.getElementById("quantidade-camarote").innerHTML =
-      resultIngressos.camarote;
-    document.getElementById("ingresso-camarote").classList.remove("hidden");
-    valorTotal += valorIngressos.camarote * resultIngressos.camarote;
+  for (let tipoIngresso in resultIngressos) {
+    if (
+      resultIngressos[tipoIngresso] > 0 &&
+      document.getElementById(`ingresso-${tipoIngresso}`)
+    ) {
+      document.getElementById(`quantidade-${tipoIngresso}`).innerHTML =
+        resultIngressos[tipoIngresso];
+      document
+        .getElementById(`ingresso-${tipoIngresso}`)
+        .classList.remove("hidden");
+      valorTotal +=
+        valorIngressos[tipoIngresso] * resultIngressos[tipoIngresso];
+    }
   }
 
-  if (resultServicos.premium == true) {
-    document.getElementById("servico-premium").classList.remove("hidden");
-    document.getElementById("valor-servico-premium").innerHTML =
-      valorServicos.premium;
-    valorTotal += valorServicos.premium;
+  if (resultServicos) {
+    for (let tipoServico in resultServicos) {
+      if (
+        resultServicos[tipoServico] === true &&
+        document.getElementById(`servico-${tipoServico}`)
+      ) {
+        document
+          .getElementById(`servico-${tipoServico}`)
+          .classList.remove("hidden");
+        document.getElementById(`valor-servico-${tipoServico}`).innerHTML =
+          valorServicos[tipoServico];
+        valorTotal += valorServicos[tipoServico];
+      }
+    }
   }
 
-  if (resultServicos.pista == true) {
-    document.getElementById("servico-pista").classList.remove("hidden");
-    document.getElementById("valor-servico-pista").innerHTML =
-      valorServicos.pista;
-    valorTotal += valorServicos.pista;
-  }
-
-  if (resultServicos.arquibancada == true) {
-    document.getElementById("servico-arquibancada").classList.remove("hidden");
-    document.getElementById("valor-servico-arquibancada").innerHTML =
-      valorServicos.arquibancada;
-    valorTotal += valorServicos.arquibancada;
-  }
-
-  if (resultServicos.camarote == true) {
-    document.getElementById("servico-camarote").classList.remove("hidden");
-    document.getElementById("valor-servico-camarote").innerHTML =
-      valorServicos.camarote;
-    valorTotal += valorServicos.camarote;
-  }
-
-  document.getElementById("valorTotal").innerHTML = valorTotal;
+  document.getElementById("valorTotal").innerHTML = valorTotal.toFixed(2);
 }
 
 if (window.location.pathname.endsWith("confirmacao.html")) {
@@ -230,34 +222,62 @@ if (window.location.pathname.endsWith("confirmacao.html")) {
 
 function confirmarRevisao() {
   window.open("cartao.html", "_self");
+
   let disponiveis = localStorage.getItem("totaisDisponiveis");
-  let totaisDisponiveis = JSON.parse(disponiveis);
+  let totaisDisponiveisAtuais = JSON.parse(disponiveis);
   let result = localStorage.getItem("carrinho");
   let comprados = JSON.parse(result);
 
-  totaisDisponiveis.premium = totaisDisponiveis.premium - comprados.premium;
-  totaisDisponiveis.pista = totaisDisponiveis.pista - comprados.pista;
-  totaisDisponiveis.arquibancada =
-    totaisDisponiveis.arquibancada - comprados.arquibancada;
-  totaisDisponiveis.camarote = totaisDisponiveis.camarote - comprados.camarote;
-
-  localStorage.setItem("totaisDisponiveis", JSON.stringify(totaisDisponiveis));
-}
-
-// Inicializa o localStorage com os totais se ainda não existir
-if (!localStorage.getItem("totaisDisponiveis")) {
-  localStorage.setItem("totaisDisponiveis", JSON.stringify(totaisDisponiveis));
-}
-
-if (window.location.pathname.endsWith("ingressosShow.html")) {
-  let json = localStorage.getItem("totaisDisponiveis");
-  let totais = JSON.parse(json); // Correção: usar JSON.parse
-
-  if (totais) {
-    document.getElementById("disponiveis-premium").innerHTML = totais.premium;
-    document.getElementById("disponiveis-pista").innerHTML = totais.pista;
-    document.getElementById("disponiveis-arquibancada").innerHTML =
-      totais.arquibancada;
-    document.getElementById("disponiveis-camarote").innerHTML = totais.camarote;
+  for (let tipo in comprados) {
+    if (totaisDisponiveisAtuais.hasOwnProperty(tipo)) {
+      totaisDisponiveisAtuais[tipo] -= comprados[tipo];
+    }
   }
+
+  localStorage.setItem(
+    "totaisDisponiveis",
+    JSON.stringify(totaisDisponiveisAtuais)
+  );
+  localStorage.removeItem("carrinho"); // Limpa o carrinho após a compra
+}
+
+// ---- BLOCO DE INICIALIZAÇÃO CORRIGIDO ----
+function inicializarPaginaIngressos() {
+  let totaisSalvosDoStorage = JSON.parse(
+    localStorage.getItem("totaisDisponiveis")
+  );
+
+  // Combina os totais padrão com os salvos, garantindo que novos tipos de ingresso existam.
+  const totaisAtualizados = { ...totaisDisponiveis, ...totaisSalvosDoStorage };
+  localStorage.setItem("totaisDisponiveis", JSON.stringify(totaisAtualizados));
+
+  let carrinhoSalvo = JSON.parse(localStorage.getItem("carrinho"));
+  if (carrinhoSalvo) {
+    for (let tipo in carrinhoSalvo) {
+      if (quantidades.hasOwnProperty(tipo)) {
+        quantidades[tipo] = carrinhoSalvo[tipo];
+      }
+    }
+  }
+
+  for (let tipo in totaisDisponiveis) {
+    // Itera sobre o objeto padrão para garantir a verificação de todos os elementos na página
+    let elementoDisponiveis = document.getElementById(`disponiveis-${tipo}`);
+    let elementoQuantidade = document.getElementById(`quantidade-${tipo}`);
+
+    if (elementoDisponiveis) {
+      let quantidadeNoCarrinho = quantidades[tipo] || 0;
+      // Usa o objeto atualizado que previne o NaN
+      elementoDisponiveis.innerHTML =
+        totaisAtualizados[tipo] - quantidadeNoCarrinho;
+    }
+
+    if (elementoQuantidade) {
+      elementoQuantidade.innerHTML = quantidades[tipo] || 0;
+    }
+  }
+}
+
+if (window.location.pathname.includes("ingressos")) {
+  inicializarPaginaIngressos();
 }

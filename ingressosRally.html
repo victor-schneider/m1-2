@@ -1,13 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>WRC</title>
-</head>
-<body>
-  
-  <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
@@ -15,7 +6,7 @@
   <link rel="stylesheet" href="ingressosShow.css">
   <link rel="stylesheet" href="ingressosRally.css">
   <script src="script.js" defer></script>
-  <title>Show Desert Apes</title>
+  <title>WRC</title>
 </head>
 <body>
   <header>
@@ -46,13 +37,15 @@
         
         <div class="row-ingresso">
           <p>Acesso à area de evento</p>
-          <p>R$<span id="valorPremium"></span></p>
+          <p>R$<span id="valor-acesso">180</span></p>
+           <p class="disponiveis">Disponíveis: <span id="disponiveis-acesso">0</span></p>
           <div class="total-ingressos">
-            <button type="button" onClick="alterarQuantidade('pista', 'menos')">-</button>
-            <span class="quantidade" id="quantidade-pista">0</span>
-            <button type="button" onClick="alterarQuantidade('pista', 'mais')">-</button>
+            <button type="button" onClick="alterarQuantidade('acesso', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-acesso">0</span>
+            <button type="button" onClick="alterarQuantidade('acesso', 'mais')">+</button>
           </div>
         </div>
+         <button type="button" onClick="confirmar()" id="botao-confirmar">Confirmar</button>
       </div>
     </div>
 
@@ -62,11 +55,5 @@
     <h2>Complyca - Todos os direitos reservados</h2>
     
   </footer>
-
-  
-</body>
-</html>
-
-
 </body>
 </html>
