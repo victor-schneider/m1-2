@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="ingressosShow.css">
+  <script src="script.js" defer></script>
+  <title>Show Desert Apes</title>
+</head>
+<body>
+  <header>
+    <a href="home.html">
+      <img src="logoPequena.png" alt="">
+    </a>
+  </header>
+  <main>
+    <section id="banner">
+      <div id="infos">
+        <h2>Desert Apes em Florianópolis</h2>
+        <p>Data: 06/07/2077</p>
+        <p>Abertura dos portões: 20:00</p>
+        <p>Início: 21:00</p>
+        <p>Fim: 23:30</p>
+      </div>
+      <div id="imgBanner">
+        <img src="./imagens-eventos/show.png" alt="">
+      </div>
+    </section>
+
+    <div id="container-locais-ingressos">
+      <section id="locaisEvento">
+        <h2>Selecione uma área para comprar ingressos</h2>
+        <div id="bannerLocais">
+          <div id="arquibancada">
+            <p>Arquibancada</p>
+          </div>
+          <div id="meio">
+            <div id="palco">
+              <p>Palco</p>
+            </div>
+            <div class="pista">
+              <p>Pista Premium</p>
+            </div>
+            <div class="pista">
+              <p>Pista</p>
+            </div>
+          </div>
+          <div id="camarote">
+            <p>Camarote</p>
+          </div>
+        </div>
+      </section>
+      <div id="ingressos">
+        <h3>Ingressos</h3>
+        <div class="row-ingresso">
+          <p>Pista Premium</p>
+          <p>R$<span id="valor-premium">200</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-premium">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('premium', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-premium">0</span>
+            <button type="button" onClick="alterarQuantidade('premium', 'mais')">+</button>
+          </div>
+        </div>
+        <div class="row-ingresso">
+          <p>Pista</p>
+          <p>R$<span id="valor-pista">120</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-pista">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('pista', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-pista">0</span>
+            <button type="button" onClick="alterarQuantidade('pista', 'mais')">+</button>
+          </div>
+        </div>
+        <div class="row-ingresso">
+          <p>Arquibancada</p>
+          <p>R$<span id="valor-arquibancada">150</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-arquibancada">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('arquibancada', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-arquibancada">0</span>
+            <button type="button" onClick="alterarQuantidade('arquibancada', 'mais')">+</button>
+          </div>
+        </div>
+        <div class="row-ingresso">
+          <p>Camarote</p>
+          <p>R$<span id="valor-camarote">300</span></p>
+          <p class="disponiveis">Disponíveis: <span id="disponiveis-camarote">0</span></p>
+          <div class="total-ingressos">
+            <button type="button" onClick="alterarQuantidade('camarote', 'menos')">-</button>
+            <span class="quantidade" id="quantidade-camarote">0</span>
+            <button type="button" onClick="alterarQuantidade('camarote', 'mais')">+</button>
+          </div>
+        </div>
+        <button type="button" onClick="confirmar()" id="botao-confirmar">Confirmar</button>
+      </div>
+    </div>
+
+    
+  </main>
+
+ <!-- <div class="popup" onclick="myFunction()">Click me!
+  <span class="popuptext" id="myPopup">Popup text...</span>
+  </div> -->
+
+  <footer>
+    <h2>Complyca - Todos os direitos reservados</h2>
+    
+  </footer>
+
+  
+</body>
+</html>

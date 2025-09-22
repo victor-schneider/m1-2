@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="interactive-card-details-form-main/interactive-card-details-form-main/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  
+  <title>Formulário Interativo</title> 
+</head>
+<body>
+    <script src="script.js" defer></script>
+    <div class="containerCartao">
+        <img src="interactive-card-details-form-main/interactive-card-details-form-main/images/bg-main-mobile.png" alt="" class="bgHeader">
+        <div class="containerCartaoVerso">
+            <img src="interactive-card-details-form-main/interactive-card-details-form-main/images/bg-card-back.png" alt="Cartão" class="imagemCartaoVerso">
+            <div class="card-text cvc" id="cvcCartao">000</div>
+        </div>
+        
+
+        <div class="containerCartaoFrente">
+            <div class="imagemCartao">
+                <img src="interactive-card-details-form-main/interactive-card-details-form-main/images/bg-card-front.png" alt="Cartão" class="imagemCartaoFrente">
+            </div>
+            <div class="card-text numero" id="numeroCartao">0000 0000 0000 0000</div>
+            <div class="nomeData">
+                <div class="card-text nome" id="nomeCartao">Nome do Titular</div>
+                <div class="card-text validade" id="validadeCartaoMes">MM</div>
+                <div class="card-text validade" id="barra">/</div>
+                <div class="card-text validade" id="validadeCartaoAno">AA</div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <div class="containerForm">
+            <form name="" id="form">
+                <div class="formNome">
+                    <label for="nome">Titular</label>
+                    <input type="text" class="placeholder" id="nome" maxlength="" placeholder="Nome do Titular">
+                    <span class="mensagemErro" id="erroNome">Somente letras</span>
+                </div>
+            
+                <div class="formNumero">
+                    <label for="numeroCartao">Número</label>
+                    <input type="text" class="placeholder" id="numero" maxlength="16" placeholder="0000 0000 0000 0000">
+                    <span class="mensagemErro" id="erroNumero">Somente números</span>
+                </div>
+            
+                <div class="formData-cvc-container">
+                    <div class="formData">
+                        <label for="validade">Validade (MM/AA)</label>
+                        <div class="formData-input">
+                            <input type="text" class="placeholder" id="validadeMes" maxlength="2" placeholder="MM">
+                            <span class="mensagemErro" id="erroNumeroMes">Somente números</span>
+
+                            <input type="text" class="placeholder" id="validadeAno" maxlength="2" placeholder="AA">
+                            <span class="mensagemErro" id="erroMes">Insira um mês válido</span>
+                            <span class="mensagemErro" id="erroAno">Insira um ano válido</span>
+                            <span class="mensagemErro" id="erroNumeroAno">Somente números</span>
+                            
+
+                        </div>
+                    </div>
+                
+                    <div class="formCVC">
+                        <label for="cvc">CVC</label>
+                        <input type="text" class="placeholder" id="cvc" maxlength="3" placeholder="000">
+                        <span class="mensagemErro" id="erroNumeroCVC">Somente números</span>
+                    </div>
+                </div>
+
+                <button type="submit" id="confirmar">Confirmar</button>
+            </form>
+        </div>
+        <div id="mensagemSucesso" class="oculto">
+            <h2>Sucesso!</h2>
+            <p>Os dados do seu cartão foram salvos.</p>
+            <button id="voltar">Voltar</button>
+        </div>
+    </main>
+
+  <!-- Pagina de confirmação -->
+
+  
+      
+</body>
+</html>

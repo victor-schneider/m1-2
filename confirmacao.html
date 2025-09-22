@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="confirmacao.css">
+  <script src="script.js" defer></script>
+  <title>Confirmação</title>
+</head>
+<body>
+  <header>
+    <a href="home.html">
+      <img src="logoPequena.png" alt="">
+    </a>
+  </header>
+  <main>
+    <h1>Revise sua compra:</h1>
+    <div class="revisao">
+      <div class="ingressos">
+        <h2>Ingressos:</h2>
+        <p class="hidden" id="ingresso-premium"><span id="quantidade-premium">0</span> - Ingressos Premium</p>
+        <p class="hidden" id="ingresso-arquibancada"><span id="quantidade-arquibancada">0</span> - Ingressos Arquibancada</p>
+        <p class="hidden" id="ingresso-pista"><span id="quantidade-pista">0</span> - Ingressos Pista</p>
+        <p class="hidden" id="ingresso-camarote"><span id="quantidade-camarote">0</span> - Ingressos Camarote</p>
+      </div>
+
+      <div class="servicos">
+        <h2>Serviços:</h2>
+        <p class="hidden" id="servico-premium">Serviço Premium - Valor: R$<span id="valor-servico-premium">0</span></p>
+        <p class="hidden" id="servico-pista">Serviço Pista - Valor: R$<span id="valor-servico-pista">0</span></p>
+        <p class="hidden" id="servico-arquibancada">Serviço Arquibancada - Valor: R$<span id="valor-servico-arquibancada">0</span></p>
+        <p class="hidden" id="servico-camarote">Serviço Camarote - Valor: R$<span id="valor-servico-camarote">0</span></p>
+      </div>
+      
+      <div class="total">
+        <h2>Total: </h2> <h2>R$ <span id="valorTotal">2500</span></h2>
+      </div>
+
+      <div class="confirmar-pagamento">
+        <button type="button" onClick="confirmarRevisao()">Prosseguir para Pagamento</button>
+      </div>
+      
+    </div>
+    
+  </main>
+</body>
+</html>

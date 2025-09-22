@@ -1,0 +1,85 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+h1 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.lista-servicos {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: auto;
+  padding-top: 20px;
+  border-radius: 5px;
+  gap: 10px;
+}
+
+.tipo-servico > h2 {
+  padding-bottom: 20px;
+}
+
+.tipo-servico {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.bloco-servico {
+    display: flex;
+    flex-direction: column;
+    background-color: oklch(97.7% 0.013 236.62);;
+    padding: 20px;
+    border-radius: 5px;
+    gap: 10px;
+
+}
+
+.bloco-servico > button {
+  width: fit-content;
+  padding: 5px 10px 5px 10px;
+  background-color: oklch(87.9% 0.169 91.605);
+  border-radius: 5px;
+  border: none;
+}
+
+.confirmar {
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 10px;
+  justify-content: center;
+}
+
+.confirmar > button {
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
+  padding: 5px 10px 5px 10px;
+  background-color: oklch(87.9% 0.169 91.605);
+  border-radius: 5px;
+  border: none;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+

@@ -1,0 +1,127 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  width: 100%;
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.revisao {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.ingressos > h2 {
+  display: flex;
+  flex-direction: column;
+  
+  text-align: center;
+  align-content: center;
+  padding: 10px 0px 20px 0px;
+}
+
+.ingressos > p {
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: oklch(98.7% 0.022 95.277);
+  margin-right: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.ingressos {
+  display: flex;
+  flex-direction: column;
+  background-color: oklch(95.1% 0.026 236.824);
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+.servicos {
+  display: flex;
+  flex-direction: column;
+  background-color: oklch(95.1% 0.026 236.824);
+  width: 50%;
+  margin: auto;
+  border-radius: 10px;
+  padding-left: 30px;
+  padding-bottom: 30px;
+}
+
+.servicos > h2 {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  padding: 10px 0px 20px 0px;
+}
+
+.servicos > p {
+  display: flex;
+  flex-direction: row;
+  font-weight: 500;
+  font-size: 16px;
+  background-color: oklch(98.7% 0.022 95.277);
+  margin-right: 30px;
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.total {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 50%;
+  margin: auto;
+  background-color: oklch(95.4% 0.038 75.164);
+  border-radius: 5px;
+  padding: 20px;
+}
+
+.confirmar-pagamento {
+  display: flex;
+  flex-direction: column;
+  background-color: red;
+  width: 53%;
+  margin: auto;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.confirmar-pagamento > button {
+  display: flex;
+  flex-direction: column;
+  background-color: oklch(70.5% 0.213 47.604);
+  padding: 25px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+}

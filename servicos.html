@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="servicos.css">
+  <script src="script.js" defer></script>
+  <title>Serviços</title>
+</head>
+<body>
+  <header>
+    <a href="home.html">
+      <img src="logoPequena.png" alt="">
+    </a>
+  </header>
+
+  <div>
+    <h1>Serviços</h1>
+
+    <div class="lista-servicos">
+      <div class="tipo-servico  hidden" id="servicos-premium">
+        <h2>Premium</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b></p>
+            <p>Tenha o acesso ao backstage do show!</p>
+            <p>Valor: R$200</p>
+            <button type="button" onClick="adicionarServico('premium')" id="botao-premium">Adicionar ao carrinho</button>
+
+        </div>
+      </div>
+
+      
+      <div class="tipo-servico  hidden" id="servicos-pista">
+        <h2>Pista</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b></p>
+            <p>Uma camiseta autografada no final</p>
+            <p>Valor: R$500</p>
+            <button type="button" onClick="adicionarServico('pista')" id="botao-pista">Adicionar ao carrinho</button>
+
+        </div>
+
+      </div>
+
+    <div class="tipo-servico  hidden" id="servicos-arquibancada">
+        <h2>Arquibancada</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b></p>
+            <p>Um chope 700ml</p>
+            <p>Valor: R$52</p>
+            <button type="button" onClick="adicionarServico('arquibancada')" id="botao-arquibancada">Adicionar ao carrinho</button>
+
+        </div>
+
+      </div>
+
+    <div class="tipo-servico  hidden" id="servicos-camarote">
+        <h2>Camarote</h2>
+        <div class="bloco-servico">
+            <p><b>Descrição:</b></p>
+            <p>Open bar do início ao fim do evento.</p>
+            <p>Valor: R$150</p>
+            <button type="button" onClick="adicionarServico('camarote')" id="botao-camarote">Adicionar ao carrinho</button>
+
+        </div>
+
+      </div>
+
+      <div class="confirmar">
+        <button type="button" onClick="confirmarServicos()">Confirmar compra</button>
+        <button type="button" onClick="pularEtapa()">Pular etapa</button>
+      </div>
+
+    </div>
+  </div>
+  </main>
+  <footer>
+    
+  </footer>
+</body>
+</html>

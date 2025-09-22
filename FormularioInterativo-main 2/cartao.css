@@ -1,0 +1,214 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --branco: hsla(0, 0%, 100%, 0.925);
+    --violeta-acinzentado-claro: hsl(270, 3%, 87%);
+    --violeta-acinzentado-escuro: hsl(279, 6%, 55%);
+    --violeta-escuro: hsl(278, 68%, 11%);
+    --vermelho-erro: hsla(0, 100%, 66%, 0.87);
+    --input-ativo: hsl(249, 99%, 64%) to hsl(278, 94%, 30%);
+
+    --fonte: "Space Grotesk", sans-serif;
+}
+
+main {
+    font-family: var(--fonte);
+}
+
+.bgHeader{
+    width: 100%;
+    height: 180px;
+    display: block;
+}
+
+.containerCartao{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+}
+
+.containerCartaoFrente {
+    display: flex;
+    width: 250px;
+    flex-direction: column;
+    margin-left: -80px;
+}
+
+.imagemCartao, .imagemCartaoFrente, .imagemCartaoVerso {
+    width: 100%;
+}
+
+.containerCartaoVerso {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    margin-top: -150px;
+    margin-right: -80px;
+}
+
+.textoCartaoVerso {
+    z-index: 4;
+    display: flex;
+    flex-direction: column;
+}
+
+.numero {
+    display: flex;
+    margin-top: -80px;
+    margin-left: 10px;
+    font-size: 16px;
+}
+
+.nomeData {
+    display: flex;
+    flex-direction: row;
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+.nome {
+    margin-right: 45px;
+}
+
+.validade {
+    position: relative;
+}
+
+.cvc {
+    margin-left: 180px;
+    margin-top: -80px;
+    padding-bottom: 2px;
+}
+
+.card-text {
+    display: flex;
+    color: var(--branco);
+    z-index: 4;
+    font-family: var(--fonte);
+    font-size: 16px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.63);
+}
+
+.containerForm {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 100%;
+    max-width: 330px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--violeta-escuro);
+}
+
+input {
+    padding: 15px 7px;
+    border-radius: 8px;
+    border: 1px solid var(--violeta-acinzentado-claro);
+    outline: none;
+    font-size: 16px;
+}
+
+input:focus {
+    border-color: var(--input-ativo);
+}
+
+input:invalid + .mensagemErro {
+    display: block;
+}
+
+.formNome, .formNumero {
+    display: flex;
+    flex-direction: column;
+    padding: 15px 0px;
+}
+
+.formData-cvc-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.formData {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    padding: 15px 0px;
+}
+
+.formData-input {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.formData-input input {
+    width: 65px;
+}
+
+.formCVC {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 15px 0px;
+}
+
+.formCVC input {
+    width: 100%;
+}
+
+.mensagemErro {
+    color: var(--vermelho-erro);
+    font-size: 13px;
+    display: none;
+}
+
+.mensagemErro.active {
+    display: block;
+}
+
+button {
+    padding: 15px;
+    width: 90%;
+    margin: 20px auto;
+    font: var(--fonte);
+    font-size: 18px;
+    font-weight: 500;
+    background-color: var(--violeta-escuro);
+    color: var(--branco);
+    border-radius: 10px;
+}
+
+.oculto {
+    display: none;
+}
+
+#mensagemSucesso {
+    flex-direction: column;
+    padding: 15px 0px;
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--violeta-escuro);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 30px auto;
+    width: 350px;
+}
