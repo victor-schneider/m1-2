@@ -53,8 +53,8 @@ let servico = {
   // Show
   premium: false,
   pista: false,
-  arquibancada: false, // Mantido para consistência
-  camarote: false, // Mantido para consistência
+  arquibancada: false,
+  camarote: false,
   // Rally
   camisetaRally: false,
   boxRally: false,
@@ -238,16 +238,14 @@ function confirmarRevisao() {
     "totaisDisponiveis",
     JSON.stringify(totaisDisponiveisAtuais)
   );
-  localStorage.removeItem("carrinho"); // Limpa o carrinho após a compra
+  localStorage.removeItem("carrinho");
 }
 
-// ---- BLOCO DE INICIALIZAÇÃO CORRIGIDO ----
 function inicializarPaginaIngressos() {
   let totaisSalvosDoStorage = JSON.parse(
     localStorage.getItem("totaisDisponiveis")
   );
 
-  // Combina os totais padrão com os salvos, garantindo que novos tipos de ingresso existam.
   const totaisAtualizados = { ...totaisDisponiveis, ...totaisSalvosDoStorage };
   localStorage.setItem("totaisDisponiveis", JSON.stringify(totaisAtualizados));
 
@@ -261,13 +259,11 @@ function inicializarPaginaIngressos() {
   }
 
   for (let tipo in totaisDisponiveis) {
-    // Itera sobre o objeto padrão para garantir a verificação de todos os elementos na página
     let elementoDisponiveis = document.getElementById(`disponiveis-${tipo}`);
     let elementoQuantidade = document.getElementById(`quantidade-${tipo}`);
 
     if (elementoDisponiveis) {
       let quantidadeNoCarrinho = quantidades[tipo] || 0;
-      // Usa o objeto atualizado que previne o NaN
       elementoDisponiveis.innerHTML =
         totaisAtualizados[tipo] - quantidadeNoCarrinho;
     }
